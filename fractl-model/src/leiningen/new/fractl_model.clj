@@ -5,9 +5,14 @@
 
 (def render (renderer "fractl-model"))
 
+(defn- parse-name [app-name]
+  (s/split app-name #":"))
+
 (defn fractl-model
   [app-name]
-  (let [data {:name app-name
+  (let [xs (parse-name app-name)
+        data {:name (first xs)
+              :version (or (second xs) "0.0.1")
               :component-name (keyword (s/capitalize (name app-name)))
               :sanitized (name-to-path app-name)}]
     (main/info "Generating fresh 'lein new' fractl-model project.")
