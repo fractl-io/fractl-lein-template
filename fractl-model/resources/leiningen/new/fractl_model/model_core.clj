@@ -1,4 +1,4 @@
-(ns {{name}}.model.{{name}}.core
+(ns {{ns-name}}.model.{{model-ns}}.core
   (:use [fractl.lang]))
 
 (component {{component-name}}.Core)

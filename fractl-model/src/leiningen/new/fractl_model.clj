@@ -23,14 +23,17 @@
   (let [xs (parse-name app-info)
         n (app-name xs)
         data {:name n
+              :ns-name (s/replace n "-" "_")
               :version (or (app-version xs) "0.0.1")
               :component-name (normalize-component-name n)
-              :sanitized (name-to-path n)}]
+              :sanitized (name-to-path n)
+              :model-ns (s/replace n "-" ".")
+              :model-path (s/replace n #"[\.\-_]" java.io.File/separator)}]
     (main/info "Generating fresh 'lein new' fractl-model project.")
     (->files data
              ["README.md" (render "README.md" data)]
              ["config.edn" (render "config.edn" data)]
              ["project.clj" (render "project.clj" data)]
              ["src/{{sanitized}}/model/model.clj" (render "model.clj" data)]
-             ["src/{{sanitized}}/model/{{sanitized}}/core.clj" (render "model_core.clj" data)]
+             ["src/{{sanitized}}/model/{{model-path}}/core.clj" (render "model_core.clj" data)]
              ["src/{{sanitized}}/core.clj" (render "core.clj" data)])))

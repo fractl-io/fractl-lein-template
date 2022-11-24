@@ -1,7 +1,7 @@
-(ns {{name}}.core
+(ns {{ns-name}}.core
   (:require [fractl.core :as fractl]
-            [{{name}}.model.model])
+            [{{ns-name}}.model.model])
   (:gen-class
-   :name {{name}}.core))
+   :name {{ns-name}}.core))
 
 (defn -main [& args] (apply fractl/-main args))
