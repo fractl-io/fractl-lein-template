@@ -34,6 +34,6 @@
              ["README.md" (render "README.md" data)]
              ["config.edn" (render "config.edn" data)]
              ["project.clj" (render "project.clj" data)]
-             ["src/{{sanitized}}/model/model.clj" (render "model.clj" data)]
-             ["src/{{sanitized}}/model/{{model-path}}/core.clj" (render "model_core.clj" data)]
-             ["src/{{sanitized}}/core.clj" (render "core.clj" data)])))
+             ["src/{{sanitized}}/model/model.cljc" (render "model.cljc" data)]
+             ["src/{{sanitized}}/model/{{model-path}}/core.cljc" (render "model_core.cljc" data)]
+             ["src/{{sanitized}}/core.cljc" (render "core.cljc" data)])))
