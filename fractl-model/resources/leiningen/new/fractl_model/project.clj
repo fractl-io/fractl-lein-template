@@ -1,4 +1,4 @@
 (defproject {{name}} "{{version}}"
-  :dependencies [[fractl-io/fractl "0.4.0"]]
+  :dependencies [[fractl-io/fractl "{{fractl-version}}"]]
   :aot :all
   :main {{ns-name}}.core)

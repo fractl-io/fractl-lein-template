@@ -11,6 +11,7 @@
 
 (def ^:private app-name first)
 (def ^:private app-version second)
+(def ^:private fractl-version #(nth % 2))
 
 (defn- capsfirst [s]
   (str (s/upper-case (first s)) (apply str (rest s))))
@@ -25,6 +26,7 @@
         data {:name n
               :ns-name (s/replace n "-" "_")
               :version (or (app-version xs) "0.0.1")
+              :fractl-version (fractl-version xs)
               :component-name (normalize-component-name n)
               :sanitized (name-to-path n)
               :model-ns (s/replace n "-" ".")
